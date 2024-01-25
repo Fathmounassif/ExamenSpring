@@ -1,0 +1,63 @@
+<!-- src/main/resources/templates/home.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vaccination App</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" th:href="@{/css/styles.css}" />
+    <style>
+        body {
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            display: block;
+            margin-top: 15px;
+            padding: 10px;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Centres de Vaccination</h2>
+        <ul th:each="centre : ${centres}">
+            <li>
+                <a th:href="@{'/centre/' + ${centre.id}}" th:text="${centre.nom}"></a>
+            </li>
+        </ul>
+
+        <a href="/nouveauCitoyen">Ajouter un nouveau citoyen</a>
+        <a href="/nouveauCentre">Ajouter un nouveau centre de vaccination</a>
+    </div>
+
+    <script type="text/javascript" src="/js/scripts.js" th:src="@{/js/scripts.js}"></script>
+</body>
+</html>

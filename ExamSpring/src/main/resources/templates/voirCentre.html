@@ -1,0 +1,62 @@
+<!-- src/main/resources/templates/voirCentre.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Centre de Vaccination</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" th:href="@{/css/styles.css}" />
+    <style>
+        body {
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        a {
+            display: block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Centre de Vaccination</h2>
+        <p th:text="${centre.nom}"></p>
+        <p th:text="${centre.adresse}"></p>
+
+        <h3>Citoyens affectés:</h3>
+        <ul th:each="citoyen : ${centre.citoyens}">
+            <li th:text="${citoyen.nom}"></li>
+        </ul>
+
+        <a href="/">Retour à la page d'accueil</a>
+    </div>
+
+    <script type="text/javascript" src="/js/scripts.js" th:src="@{/js/scripts.js}"></script>
+</body>
+</html>
